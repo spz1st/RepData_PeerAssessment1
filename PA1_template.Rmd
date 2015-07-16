@@ -12,8 +12,6 @@ and their outputs for assignment 1.
 
 ## Loading and preprocessing the data
 
-Show any code that is needed to
-
 1. Load the data
 
  Note that the activity.csv is already unpacked from the zip file and
