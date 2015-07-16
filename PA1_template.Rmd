@@ -4,19 +4,28 @@ output:
   html_document:
     keep_md: true
 ---
+# Reproducible Research: Assignment 1
 
+This report documents the steps of process and analysis of
+the data in the file activity.csv along with the R codes
+and their outputs for assignment 1.
 
 ## Loading and preprocessing the data
 
 Show any code that is needed to
 
-1. Load the data (i.e. read.csv())
+1. Load the data
+
+ Note that the activity.csv is already unpacked from the zip file and
+the R code does not include this step.
+
+ ```{r}
+df = read.csv("activity.csv")
+```
 
 2. Process/transform the data (if necessary) into a format suitable for your analysis 
 
  ```{r}
-df = read.csv("activity.csv")
-
 df$interval = sprintf("%04s", df$interval) # patching interval to have 4 digits
 ```
 

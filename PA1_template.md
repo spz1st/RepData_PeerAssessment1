@@ -4,20 +4,30 @@ output:
   html_document:
     keep_md: true
 ---
+# Reproducible Research: Assignment 1
 
+This report documents the steps of process and analysis of
+the data in the file activity.csv along with the R codes
+and their outputs for assignment 1.
 
 ## Loading and preprocessing the data
 
 Show any code that is needed to
 
-1. Load the data (i.e. read.csv())
+1. Load the data
+
+ Note that the activity.csv is already unpacked from the zip file and
+the R code does not include this step.
+
+ 
+ ```r
+ df = read.csv("activity.csv")
+ ```
 
 2. Process/transform the data (if necessary) into a format suitable for your analysis 
 
  
  ```r
- df = read.csv("activity.csv")
- 
  df$interval = sprintf("%04s", df$interval) # patching interval to have 4 digits
  ```
 
@@ -42,7 +52,7 @@ as instructed (without being removed).
  hist(totals, xlab="Total number of steps", main="Histogram of total number of steps")
  ```
  
- ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+ ![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
 
 3. Calculate and report the mean and median of the total number of steps taken per day
 
@@ -86,7 +96,7 @@ Notice that the mean and median are slightly different.
  plot(dt, avgs, type="l", xlab="Time interval", ylab="Average number of steps")
  ```
  
- ![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
+ ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -143,7 +153,7 @@ but with the missing data filled in.
  hist(totals2, xlab="Total number of steps", main="Histogram of total number of steps")
  ```
  
- ![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
+ ![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
  
  ```r
  mean(totals2)
@@ -205,7 +215,7 @@ For this part the weekdays() function may be of some help here. Use the dataset 
  xyplot(steps ~ interval|daytype, layout=c(1,2), type="l", xlab="Interval", ylab="Number of steps", data=df3)
  ```
  
- ![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
+ ![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png) 
 
 The panel plot indicates that there are clearly differences
 in activity patterns between weekdays and weekends.
