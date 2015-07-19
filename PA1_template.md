@@ -60,7 +60,7 @@ as instructed (without being removed).
  ```
  
  ```
- ## [1] 10766.1886792
+ ## [1] 10766.19
  ```
 
  
@@ -158,7 +158,7 @@ but with the missing data filled in.
  ```
  
  ```
- ## [1] 10766.1886792
+ ## [1] 10766.19
  ```
  
  ```r
@@ -166,7 +166,7 @@ but with the missing data filled in.
  ```
  
  ```
- ## [1] 10766.1886792
+ ## [1] 10766.19
  ```
 
 ## Are there differences in activity patterns between weekdays and weekends?
@@ -210,12 +210,21 @@ For this part the weekdays() function may be of some help here. Use the dataset 
  
  library(lattice)
  
- xyplot(steps ~ interval|daytype, layout=c(1,2), type="l", xlab="Interval", ylab="Number of steps", data=df3)
+ hours = "1 hour"
+ num = 25
+ t_ini = df3$interval[1]
+ 
+ xyplot(steps ~ interval|daytype, layout=c(1,2), type="l",
+       xlab="Time interval (hour)",
+       ylab="Number of steps",
+       scales=list(x=list(at=seq(as.POSIXct(t_ini), by=hours, length=num),
+       labels=format(seq(as.POSIXct(t_ini), by=hours, length=num), "%H"))),
+       data=df3)
  ```
  
  ![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png) 
 
 The panel plot indicates that there are clearly differences
 in activity patterns between weekdays and weekends.
-For example, there are more actitivies between 6:00am and 8:00am
+For example, there are more actitivies between 6:00am and 9:00am
 on weekdays than on weedends.

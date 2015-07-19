@@ -163,11 +163,19 @@ df3 = rbind(df3, data.frame(steps = weekend.avgs, interval=dt, daytype=c("weeken
 
 library(lattice)
 
-xyplot(steps ~ interval|daytype, layout=c(1,2), type="l", xlab="Interval", ylab="Number of steps", data=df3)
+hours = "1 hour"
+num = 25
+t_ini = df3$interval[1]
 
+xyplot(steps ~ interval|daytype, layout=c(1,2), type="l",
+       xlab="Time interval (hour)",
+       ylab="Number of steps",
+       scales=list(x=list(at=seq(as.POSIXct(t_ini), by=hours, length=num),
+       labels=format(seq(as.POSIXct(t_ini), by=hours, length=num), "%H"))),
+       data=df3)
 ```
 
 The panel plot indicates that there are clearly differences
 in activity patterns between weekdays and weekends.
-For example, there are more actitivies between 6:00am and 8:00am
+For example, there are more actitivies between 6:00am and 9:00am
 on weekdays than on weedends.
