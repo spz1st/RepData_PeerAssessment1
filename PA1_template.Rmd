@@ -14,11 +14,8 @@ and their outputs for assignment 1.
 
 1. Load the data
 
- Note that the activity.csv is already unpacked from the zip file and
-the R code does not include this step.
-
  ```{r}
-df = read.csv("activity.csv")
+df = read.csv(unzip("activity.zip"))
 ```
 
 2. Process/transform the data (if necessary) into a format suitable for your analysis 

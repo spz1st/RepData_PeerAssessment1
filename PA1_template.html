@@ -212,10 +212,7 @@ and their outputs for assignment 1.</p>
 <ol>
 <li><p>Load the data</p>
 
-<p>Note that the activity.csv is already unpacked from the zip file and
-the R code does not include this step.</p>
-
-<pre><code class="r">df = read.csv(&quot;activity.csv&quot;)
+<pre><code class="r">df = read.csv(unzip(&quot;activity.zip&quot;))
 </code></pre></li>
 <li><p>Process/transform the data (if necessary) into a format suitable for your analysis </p>
 
